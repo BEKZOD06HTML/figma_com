@@ -24,9 +24,9 @@
                 <div class="menu">
                     <ul>
                         <li><a style="color: white; " href="#">Furniture <img src="./icon/eva_arrow-ios-back-outline (1).svg" alt=""></a></li>
-                        <li><a style="color: white; " href="#">Shop</a></li>
-                        <li><a style="color: white; " href="#">About Us</a></li>
-                        <li><a style="color: white; " href="#">Contact</a></li>
+                        <li><a style="color: white; " href="#buy">Shop</a></li>
+                        <li><a style="color: white; " href="#k1">About Us</a></li>
+                        <li><a style="color: white; " href="#cont">Contact</a></li>
                     </ul>
                 </div>
     <div style="position: relative;"> 
@@ -84,7 +84,7 @@
                 </div>
             </div>
         </div>
-        <div class="hard_work">
+        <div id="buy" class="hard_work">
             <section class="product" >
                 <div  class="container">
                     <h3 >Best Selling Product</h3>
@@ -100,7 +100,7 @@
                     <div style="position: relative; bottom: 150px   ;" class="carousel-container" >
                         <button style="position: relative; top: 100px;" class="carousel-btn prev-btn">&#8592;</button>
                         <div class="carousel">
-                            <div class="carousel-item chair">
+                            <div class="step chair">
                                 <img src="./chair/sakarias-armchair-black-sporda-dark-gray__0729767_pe737131_s5_adobespark (1).svg" alt="">
                                 <div class="product_text">
                                     <p>Chair</p>
@@ -114,7 +114,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="carousel-item beds" >
+                            <div class="step beds" >
                                 <img src="./chair/sakarias-armchair-black-sporda-dark-gray__0729767_pe737131_s5_adobespark (3).svg" alt="">
                                 <div class="product_text">
                                     <p>Beds</p>
@@ -128,7 +128,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="carousel-item sofa">
+                            <div class="step sofa">
                                 <img src="./chair/sakarias-armchair-black-sporda-dark-gray__0729767_pe737131_s5_adobespark (4).svg" alt="">
                                 <div class="product_text">
                                     <p>Sofa</p>
@@ -142,7 +142,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="carousel-item lamp" >
+                            <div class="step lamp" >
                                 <img src="./chair/sakarias-armchair-black-sporda-dark-gray__0729767_pe737131_s5_adobespark (4).svg" alt="">
                                 <div class="product_text">
                                     <p>Lamp</p>
@@ -156,7 +156,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="carousel-item chair" >
+                            <div class="step chair" >
                                 <img src="./chair/sakarias-armchair-black-sporda-dark-gray__0729767_pe737131_s5_adobespark.svg" alt="">
                                 <div class="product_text">
                                     <p>Chair</p>
@@ -170,7 +170,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="carousel-item beds" >
+                            <div class="step beds" >
                                 <img src="./chair/sakarias-armchair-black-sporda-dark-gray__0729767_pe737131_s5_adobespark (1).svg" alt="">
                                 <div class="product_text">
                                     <p>Beds</p>
@@ -184,7 +184,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="carousel-item sofa" >
+                            <div class="step sofa" >
                                 <img src="./chair/sakarias-armchair-black-sporda-dark-gray__0729767_pe737131_s5_adobespark (3).svg" alt="">
                                 <div class="product_text">
                                     <p>Sofa</p>
@@ -198,7 +198,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="carousel-item lamp" >
+                            <div class="step lamp" >
                                 <img src="./chair/sakarias-armchair-black-sporda-dark-gray__0729767_pe737131_s5_adobespark (4).svg" alt="">
                                 <div class="product_text">
                                     <p>Lamp</p>
@@ -220,7 +220,7 @@
             </section>
 
         </div>
-        <div class="cards">
+        <div id="k1" class="cards">
             <div class="card1">
                 <div style="position: relative;">
                     <img style="box-shadow: 0px 30px 50px rgba(0, 0, 0, 0.25) ;" src="./img/Rectangle 1446.svg" alt="">
@@ -323,7 +323,7 @@
         </div>
         
         
-        <footer class="footer">
+        <footer id="cont" class="footer">
             <div class="bottom">
                 <div class="footer_content">
                     <div class="logo">
@@ -380,5 +380,56 @@
         AOS.init();
       </script>
       <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const prevBtn = document.querySelector('.carousel-btn.prev-btn');
+          const nextBtn = document.querySelector('.carousel-btn.next-btn');
+          const carousel = document.querySelector('.carousel');
+          const filterButtons = document.querySelectorAll('.product_filter button');
+      
+          let currentStep = 0;
+      
+          function updateCarousel() {
+            const steps = document.querySelectorAll('.carousel .step');
+            const totalSteps = steps.length;
+      
+            if (currentStep < 0) currentStep = totalSteps - 1;
+            if (currentStep >= totalSteps) currentStep = 0;
+      
+            // Move the carousel by updating the scroll position
+            carousel.style.transform = `translateX(-${currentStep * (100 / totalSteps)}%)`;
+          }
+      
+          nextBtn.addEventListener('click', () => {
+            currentStep++;
+            updateCarousel();
+          });
+      
+          prevBtn.addEventListener('click', () => {
+            currentStep--;
+            updateCarousel();
+          });
+      
+          // Filtering products based on category
+          filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+              const category = button.dataset.category;
+              const steps = document.querySelectorAll('.carousel .step');
+      
+              steps.forEach(step => {
+                if (step.classList.contains(category)) {
+                  step.style.display = 'block';
+                } else {
+                  step.style.display = 'none';
+                }
+              });
+            });
+          });
+      
+          // Initialize carousel
+          updateCarousel();
+        });
+      </script>
+      
 </body>
 </html>

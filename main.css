@@ -326,7 +326,7 @@
   border-radius: 10px;
   gap: 20px;
 }
-.hard_work .product .carousel-container .carousel .carousel-item {
+.hard_work .product .carousel-container .carousel .step {
   position: relative;
   min-width: 24%;
   box-sizing: border-box;
@@ -334,7 +334,7 @@
   background-color: #FAFAFA;
   border-radius: 10px;
 }
-.hard_work .product .carousel-container .carousel .carousel-item img {
+.hard_work .product .carousel-container .carousel .step img {
   position: absolute;
   top: -40px;
   left: 50%;
@@ -343,17 +343,16 @@
   height: auto;
   margin-bottom: 15px;
 }
-.hard_work .product .carousel-container .carousel .carousel-item .product_text {
+.hard_work .product .carousel-container .carousel .step .product_text {
   width: 100%;
   margin-top: 220px;
   background-color: #FFFFFF;
-  padding: 8px 20px 20px 20px;
-  border-radius: 0 0 10px 10px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
-.hard_work .product .carousel-container .carousel .carousel-item .product_text p {
+.hard_work .product .carousel-container .carousel .step .product_text p {
   font-family: "Inter";
   font-size: 16.76px;
   font-weight: 400;
@@ -364,23 +363,18 @@
           text-decoration-skip-ink: none;
   color: #8D8D8D;
 }
-.hard_work .product .carousel-container .carousel .carousel-item .product_text h3 {
-  font-family: "Inter";
-  font-size: 21.33px;
-  font-weight: 600;
-  line-height: 25.81px;
+.hard_work .product .carousel-container .carousel .step .product_text h3 {
+  font-size: 21px;
+  line-height: 25px;
   text-align: left;
-  text-underline-position: from-font;
-  -webkit-text-decoration-skip-ink: none;
-          text-decoration-skip-ink: none;
 }
-.hard_work .product .carousel-container .carousel .carousel-item .product_text .product_price {
+.hard_work .product .carousel-container .carousel .step .product_text .product_price {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 12px;
 }
-.hard_work .product .carousel-container .carousel .carousel-item .product_text .product_price .price {
+.hard_work .product .carousel-container .carousel .step .product_text .product_price .price {
   display: flex;
   align-items: start;
   gap: 3px;
@@ -389,12 +383,9 @@
   font-weight: 600;
   line-height: 25.81px;
   text-align: left;
-  text-underline-position: from-font;
-  -webkit-text-decoration-skip-ink: none;
-          text-decoration-skip-ink: none;
   color: #0D1B39;
 }
-.hard_work .product .carousel-container .carousel .carousel-item .product_text .product_price .price span {
+.hard_work .product .carousel-container .carousel .step .product_text .product_price .price span {
   font-family: "Inter";
   font-size: 15.23px;
   font-weight: 600;
@@ -405,34 +396,19 @@
           text-decoration-skip-ink: none;
   color: #0D1B39;
 }
-.hard_work .product .carousel-container .carousel .carousel-item .product_text .product_price .button {
+.hard_work .product .carousel-container .carousel .step .product_text .product_price .button {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
-.hard_work .product .carousel-container .carousel .carousel-item .product_text .product_price .button .subtract-btn {
-  background-color: #dd3b17;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 1.8rem;
-  cursor: pointer;
-}
-.hard_work .product .carousel-container .carousel .carousel-item .product_text .product_price .button .count-display {
-  font-family: "Inter";
+.hard_work .product .carousel-container .carousel .step .product_text .product_price .button .count-display {
   font-size: 18px;
   font-weight: 600;
   line-height: 25.81px;
-  text-align: left;
-  text-underline-position: from-font;
-  -webkit-text-decoration-skip-ink: none;
-          text-decoration-skip-ink: none;
   color: #0D1B39;
 }
-.hard_work .product .carousel-container .carousel .carousel-item .product_text .product_price .button .add-btn {
+.hard_work .product .carousel-container .carousel .step .product_text .product_price .button .add-btn {
   background-color: #0D1B39;
   color: white;
   border: none;
@@ -779,6 +755,7 @@
   position: relative;
   width: 100%;
   background-repeat: no-repeat;
+  transition: all 3s ease;
 }
 
 .carousel_item {
@@ -795,7 +772,7 @@
   padding: 30px;
   text-align: center;
   position: relative;
-  top: 270px;
+  top: 210px;
   background: white;
   border-radius: 15px;
 }

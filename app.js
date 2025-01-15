@@ -1,28 +1,4 @@
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('.product_filter button');
-    const carouselItems = document.querySelectorAll('.carousel-item');
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            
-            button.classList.add('active');
-            
-            const category = button.getAttribute('data-category');
-            
-            carouselItems.forEach(item => {
-                if (category === 'all' || item.classList.contains(category)) {
-                    item.style.display = 'block'; 
-                } else {
-                    item.style.display = 'none'; 
-                }
-            });
-        });
-    });
-});
-
 document.addEventListener("DOMContentLoaded", () => {
     const bagSpans = document.querySelectorAll(".bag_count"); 
     const addButtons = document.querySelectorAll(".add-btn");
@@ -39,42 +15,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const carousel = document.querySelector('.carousel');
-    const prevBtn2 = document.querySelector('.prev-btn');
-    const nextBtn2 = document.querySelector('.next-btn');
-    let scrollAmount = 0;
+document.addEventListener("DOMContentLoaded", function() {
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
+    const carousel = document.querySelector(".carousel");
+    let currentIndex = 0;
 
-    nextBtn2.addEventListener('click', () => {
-        const carouselWidth = carousel.offsetWidth; // Visible width of the carousel
-        const scrollWidth = carousel.scrollWidth; // Total scrollable width
-        scrollAmount += carouselWidth;
+    const steps = document.querySelectorAll(".carousel .step");
+    const totalSteps = steps.length;
 
-        if (scrollAmount >= scrollWidth) {
-            scrollAmount = 0; // Reset to the start
+    // Next button click handler
+    nextBtn.addEventListener("click", () => {
+        if (currentIndex < totalSteps - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0;  // Loop back to the first item
         }
-
-        carousel.scrollTo({
-            left: scrollAmount,
-            behavior: 'smooth',
-        });
+        updateCarousel();
     });
 
-    prevBtn2.addEventListener('click', () => {
-        const carouselWidth = carousel.offsetWidth;
-        scrollAmount -= carouselWidth;
-
-        if (scrollAmount < 0) {
-            scrollAmount = carousel.scrollWidth - carouselWidth; // Scroll to the end
+    // Prev button click handler
+    prevBtn.addEventListener("click", () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = totalSteps - 1;  // Loop back to the last item
         }
-
-        carousel.scrollTo({
-            left: scrollAmount,
-            behavior: 'smooth',
-        });
+        updateCarousel();
     });
-});
-nextBtn2.addEventListener('click', () => {
-    console.log('Next button clicked');
-    // Other logic here
+
+    // Update the carousel by changing the scroll position
+    function updateCarousel() {
+        carousel.style.transform = `translateX(-${currentIndex * (100 / totalSteps)}%)`;
+    }
 });

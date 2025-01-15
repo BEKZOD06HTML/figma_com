@@ -345,14 +345,13 @@
                 border-radius: 10px;
                 gap: 20px;
     
-                .carousel-item {
+                .step {
                     position: relative;
                     min-width: 24%;
                     box-sizing: border-box;
                     text-align: center;
                     background-color: #FAFAFA;
                     border-radius: 10px;
-    
                     img {
                         position: absolute;
                         top: -40px;
@@ -368,8 +367,7 @@
                         width: 100%;
                         margin-top: 220px;
                         background-color: #FFFFFF;
-                        padding: 8px 20px 20px 20px;
-                        border-radius: 0 0 10px 10px;
+                        padding:  20px;
                         display: flex;
                         flex-direction: column;
                         gap: 6px;
@@ -386,14 +384,9 @@
                         }
     
                         h3 {
-                            font-family: 'Inter';
-                            font-size: 21.33px;
-                            font-weight: 600;
-                            line-height: 25.81px;
+                            font-size: 21px;
+                            line-height: 25px;
                             text-align: left;
-                            text-underline-position: from-font;
-                            text-decoration-skip-ink: none;
-    
                         }
 
 
@@ -412,8 +405,7 @@
                               font-weight: 600;
                               line-height: 25.81px;
                               text-align: left;
-                              text-underline-position: from-font;
-                              text-decoration-skip-ink: none;
+                          
                               color: #0D1B39;
   
                               span {
@@ -434,24 +426,10 @@
                               align-items: center;
                               justify-content: center;
                               gap: 10px;
-                              .subtract-btn{
-                                  background-color: #dd3b17;
-                                  color: white;
-                                  border: none;
-                                  border-radius: 50%;
-                                  width: 40px;
-                                  height: 40px;
-                                  font-size: 1.8rem;
-                                  cursor: pointer;
-                              }
                               .count-display {
-                                  font-family: 'Inter';
                                   font-size: 18px;
                                   font-weight: 600;
                                   line-height: 25.81px;
-                                  text-align: left;
-                                  text-underline-position: from-font;
-                                  text-decoration-skip-ink: none;
                                   color: #0D1B39;
                               }
                               .add-btn {
@@ -878,6 +856,7 @@
       position: relative;
       width: 100%;
       background-repeat: no-repeat;
+      transition: all 3s ease;
   }
   
   .carousel_item {
@@ -894,7 +873,7 @@
       padding: 30px;
       text-align: center;
       position: relative;
-      top: 270px;
+      top: 210px;
       background: white;
       border-radius: 15px;
   }
